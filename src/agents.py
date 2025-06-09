@@ -31,3 +31,17 @@ class CustomAgents:
             llm=self.llm,
             verbose=True,
         )
+    def analyst(self) -> Agent:
+        """Agent responsável por analisar artigos acadêmicos."""
+        return Agent(
+            role="Analista",
+            goal="Realizar estudos detalhados de artigos acadêmicos",
+            backstory=(
+                "Pesquisador experiente em revisão sistemática da literatura, capaz de extrair insights de publicações científicas."
+            ),
+            allow_delegation=False,
+            llm=self.llm,
+            verbose=True,
+        )
+
+
