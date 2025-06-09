@@ -8,7 +8,7 @@ Este repositório apresenta uma estrutura simples que demonstra como utilizar
 src/
   agents.py      # Definição dos agentes
   tasks.py       # Definição das tarefas
-  scholarly.py   # Funções utilitárias para pesquisa de artigos
+  tools.py       # Ferramentas personalizadas (ex: busca Crossref)
   main.py        # Execução da aplicação
 requirements.txt # Dependências Python
 ```

@@ -1,5 +1,5 @@
-from scholarly import search_papers
 from crewai import Task
+from tools import CrossrefSearchTool
 
 
 class CustomTasks:
@@ -23,6 +23,7 @@ class CustomTasks:
         )
 
     def search_academic_papers(self, agent: "Agent", query: str) -> Task:
+        tool = CrossrefSearchTool()
         return Task(
             description=(
                 f"Pesquisar artigos nas bases IEEE e ACM usando a query '{query}'. "
@@ -30,7 +31,7 @@ class CustomTasks:
             ),
             expected_output="Lista de artigos pesquisados",
             agent=agent,
-            tools=[search_papers],
+            tools=[tool],
         )
 
     def study_papers(self, agent: "Agent") -> Task:
