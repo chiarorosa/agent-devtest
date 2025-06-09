@@ -4,19 +4,19 @@ from tasks import CustomTasks
 
 
 class ExampleCrew:
-    def run(self) -> str:
+    def run(self, query: str) -> str:
         agents = CustomAgents()
         tasks = CustomTasks()
 
         researcher = agents.researcher()
-        writer = agents.writer()
+        analyst = agents.analyst()
 
-        task_research = tasks.research_frameworks(researcher)
-        task_write = tasks.write_summary(writer)
+        task_search = tasks.search_academic_papers(researcher, query)
+        task_study = tasks.study_papers(analyst)
 
         crew = Crew(
-            agents=[researcher, writer],
-            tasks=[task_research, task_write],
+            agents=[researcher, analyst],
+            tasks=[task_search, task_study],
             process=Process.sequential,
             verbose=True,
         )
@@ -25,5 +25,5 @@ class ExampleCrew:
 
 
 if __name__ == "__main__":
-    result = ExampleCrew().run()
+    result = ExampleCrew().run("agent frameworks")
     print(result)

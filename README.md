@@ -1,16 +1,14 @@
 # Exemplo de agentes com CrewAI
 
 Este repositório apresenta uma estrutura simples que demonstra como utilizar
-[CrewAI](https://github.com/crewAIInc/crewAI) para orquestrar dois agentes que
-colaboram entre si. O foco é pesquisar frameworks de agentes em Python e gerar
-um pequeno resumo.
+[CrewAI](https://github.com/crewAIInc/crewAI) para orquestrar agentes colaborativos. Agora, os agentes podem pesquisar em bases acadêmicas (IEEE e ACM via API Crossref) e realizar estudos detalhados dos artigos encontrados.
 
 ## Estrutura
-
-```
+``` 
 src/
   agents.py      # Definição dos agentes
   tasks.py       # Definição das tarefas
+  scholarly.py   # Funções utilitárias para pesquisa de artigos
   main.py        # Execução da aplicação
 requirements.txt # Dependências Python
 ```
@@ -24,7 +22,7 @@ requirements.txt # Dependências Python
    pip install -r requirements.txt
    ```
 2. Defina a variável `OPENAI_API_KEY` com sua chave da API.
-3. Rode o script principal:
+3. Rode o script principal passando a consulta desejada:
    ```bash
    python src/main.py
    ```
